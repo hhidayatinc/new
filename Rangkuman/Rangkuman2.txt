@@ -1,0 +1,19 @@
+﻿Routing dan Controller
+
+1. Routing
+Route secara umum adalah jalur atau rute. 
+Konsep routing dalam laravel juga sama yaitu jalur atau rute dari URL.
+Route dapat diakses melalui localhost:8000.
+Dalam project laravel sendiri sudah ada 4 file yaitu : web.php, api.php, console.php, channels.php.
+Sintaks dasar dalam routing : 
+Route::verb(/path, callback);
+Tanda slash (/) artinya kita berada pada halaman utamma atau index sedangkan callback bisa disebut juga anonymous function.
+
+2.Controller
+Controller digunakan untuk penyederhanaan route. 
+Penggunaan anonymous function pada route jarang dipakai karena logika yang kompleks untuk dikonversikan.
+Melihat hal tersebut maka dikenalkan konsep controller.
+Pada project laravel, controller ada di app/Http/Controllers.
+Sintaks yang digunakan untuk membuat controller : 
+php artisan make:controller nama_controller.
+Contoh : php artisan make:controller WelcomeController.

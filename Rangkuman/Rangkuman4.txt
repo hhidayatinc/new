@@ -1,0 +1,25 @@
+Rangkuman Pertemuan 4 "Model,Migration,Seeding,Caching"
+
+Model pada laravel digunakan untuk menangani database melakukan crate,insert,update,maupun delete.
+Untuk membuat model maka jalankan perintah :
+php artisan make:mode NamaModel
+Model yang terlah dibuat akan disimpan di dalam folder App.
+Setelah melakukan pembuatan model, maka lakukan konfigurasi koneksi database dengan memastikan bahwa database yang kita gunakan benar.
+
+Migration digunakan untuk membuat struktur tabel. Untuk membuat migration maka jalankan perintah :
+php artisan make:migration create_tableName_table
+Lalu melengkapi file migration dengan fungsi up().
+Setelah selesai b=membuat tabel maka jalankan perintah :
+php artisan migrate
+
+Seeding adalah melakukan penambahan data ke dalam database.Untuk membuat file seeder jalankan perintah
+php artisan make:seeder namaSeeder
+Setelah itu lengkapi file seeder dengan menuliskan kode data dummy di method run().
+factory(App\NamaModel::class, 5)->create();]);
+Untuk menjalankan seeder maka buat factory terlebih dahulu dengan menjalankan perintah :
+php artisan make:factory NamaFactory
+Isi file factory dengan menetukan atribut. Setelah itu ketik perintah :
+php artisan db:seed --class=NamaSeeder
+
+Caching dilakukan untuk mengurangi beban pengambilan data dari database atau sumber lain dapat dikurangi.
+

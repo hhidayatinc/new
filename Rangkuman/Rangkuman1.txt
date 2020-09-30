@@ -1,0 +1,16 @@
+Rangkuman Pemrograman Web Lanjut
+Kamis, 3 September 2020
+
+Web Framework adalah suatu rangka kerja yang digunakan untuk membangun web. Framework yang akan digunakan pada semester kali ini adalah Laravel. Laravel merupakan salah satu framework yang sering digunakan. Laravel menggunakan bahasa pemrograman PHP. Dalam penggunaan laravel kita harus menginstall terlebih dahulu PHP versi >= 7.2.5 dan menginstall composer.
+Langkah - langkah menginstall Laravel : 
+1.Cek versi PHP. Anda bisa mengecek melalui xampp dengan mengetikkan localhost/xampp di google.
+2.Install Composer
+3.Setelah composer diinstall, maka buka CMD
+4.Di CMD lakukan pengecekan apakah composer sudah terinstall dengan cara ketikkan composer.
+5.Jika sudah maka sekarang ketikkan composer create-project --prefer-dist laravel/laravel blog "6.*"
+6.Akan muncul pemberitahuan creating laravel dan sistem akan mulai menginstall.
+7.Setelah selesai maka akan muncul pemberitahuan bahwa install laravel sukses.
+8.Lalu ketikkan cd blog, setelah itu ketikkan dir
+9.Kemudian ketikkan php artisan key:generate, lalu ketikkan php artisan serve
+10.Pada tahap ini akan muncul sebuah alamat yaitu http://127.0.0.1:8000/
+11.Salin alamat tersebut ke browser. Jika muncul laman Laravel, maka installasi sukses.

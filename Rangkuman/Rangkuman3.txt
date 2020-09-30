@@ -1,0 +1,19 @@
+
+Rangkuman Pertemuan 3 "View"
+
+View adalah tampilan pada web. Pada view menggunakan blade untuk mempermudah dalm menulis kode tampilan.
+Biasanya file view disimpan dengan nama file yang diakhiri dengan ".blade.php" . Contoh : home.blade.php
+View dapat dijalankan langsung melalui routing dan bisa dengan memanggil controller terlebih dahulu.
+Pada laravel terdapat layout. Di layout terdapat section. 
+Layout adalah master view yang nantinya akan ditampilkan oleh view view child yang menggunakannyaatau sebagai turunan.
+Section adalah tempat yang digunakan untuk mengisi content.
+Cara menginstal bootstrap pada laravel:
+1. Unduh dan install Node.js
+2. Untuk memastikan instalasi berhasil maka ketik node -v dan npm -v pada terminal
+3. Kemudian masuk ke folder project laravel
+4. Lalu ketikkan "composer require laravel/ui:^1.0 --dev"
+5. Stelah scaffolding diinstall, ketik perintah php artisan ui bootstrap dan php artisan ui bootstrap --auth
+6. Install dependasi frontend dengan menggunakan NPM, ketik npm install pada terminal
+7. Setelah itu ketikkan npm run dev
+8. Bootstrap dan NPM sudah siap digunakan
+
