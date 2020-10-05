@@ -12,10 +12,13 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
-                color: #636b6f;
+                background-image: url('images/home1.jpg');
+                background-repeat: no-repeat;
+                background-size: 100%;
+                color: #fff;
                 font-family: 'Nunito', sans-serif;
-                font-weight: 200;
+                font-weight: bolder;
+                /* font-weight: 200; */
                 height: 100vh;
                 margin: 0;
             }
@@ -45,17 +48,19 @@
             }
 
             .title {
-                font-size: 84px;
+                font-size: 80px;
+                font-weight: bolder;
             }
 
             .links > a {
-                color: #636b6f;
+                color: #fff;
                 padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
+                font-size: 15px;
+                font-weight: 800;
                 letter-spacing: .1rem;
                 text-decoration: none;
                 text-transform: uppercase;
+                
             }
 
             .m-b-md {
@@ -67,8 +72,8 @@
         <div class="flex-center position-ref full-height">
         <div class="top-right links">
         <!-- <a href="{{ url('/home') }}">Home</a> -->
-        <a href="{{ url('/login') }}">Login</a>
-        <a href="{{ url('/register') }}">Register</a>
+        <!-- <a href="{{ url('/login') }}">Login</a>
+        <a href="{{ url('/register') }}">Register</a> -->
         </div>
             <!-- @if (Route::has('login'))
                 <div class="top-right links">
@@ -86,7 +91,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    HIDAYATI NUR CHASANAH
+                    Welcome, People!
                 </div>
 
                 <div class="links">
