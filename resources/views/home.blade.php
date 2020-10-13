@@ -37,7 +37,7 @@
     <link href="carousel.css" rel="stylesheet">
   </head>
   <body>
-    <header>
+    <!-- <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
       <a class="navbar-brand" href="/">ProjectLaravel</a>
@@ -59,7 +59,7 @@
       </div>
     </div>
   </nav>
-</header>
+</header> -->
 
 <main role="main">
 

@@ -21,4 +21,10 @@ Route::get('/home/{article}', 'HomeController@getById');
 Route::get('/about', 'AboutController@index');
 Route::get('/article/{id}', 'ArticleController@getById');
 Route::get('/article', 'ArticleController@getAll');
+//Route::get('/login', 'LoginController@login')->name('login');
 
+// Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/login', 'LoginController@login')->name('login');
+// Route::get('/register', 'RegisterController@__construct')->name('register');
