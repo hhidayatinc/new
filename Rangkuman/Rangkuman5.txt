@@ -1,0 +1,20 @@
+Rangkuman Modul 6 "Autentikasi"
+
+Praktikum 1
+Menu registrasi di Laravel sudah langsung ada setelah dilakukan instalasi laravel.
+Regustrasi dilakukan ketika seseorang belum memiliki akun untuk bisa mengakses home.
+Saat anda mengakses '/register' maka akan ditujukan ke view register yang berisi form.
+Register ini juga sudah terhubung dengan database dengan nama tabel users.
+Alur: Seseorang akan mengisi form terlebih dahulu, dan ketika sudah terisi formnya lalu mengklik rombol 'Register',
+maka akan langsung ditujukan ke halaman home. Data yang telah diinputkan di form register tadi masuk ke dalam database laravel tabel users.
+
+Praktikum 2
+Menu login dapat digunakan setelah user register atau memiliki akun.
+Ketika ingin login maka user akan diarahkan ke '/login' dan menampilkan form login.
+Jika username dan password yang dimasukkan sudah sesuai dan sdh ada dalam database maka login akan berhasil dan ke halaman home.
+Jika username atau password salah, maka akan muncul pesan kesalahan.
+
+Praktikum 3
+Ketika seseorang belum melakukan login atau register maka pada halaman welcome hanya akan ditampilkan menu 'LOGIN' dan 'REGISTER.
+Namun, setelah seseorang login dan masuk ke halaman home, lalu kembali ke halaman welcome, maka menu yang adanya hanya 'HOME'
+
