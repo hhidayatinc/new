@@ -20,7 +20,9 @@ Route::get('/home', 'HomeController@getByAll');
 Route::get('/home/{article}', 'HomeController@getById');
 Route::get('/about', 'AboutController@index');
 Route::get('/article/{id}', 'ArticleController@getById');
+Route::post('/article/{id}', 'ArticleController@insertData');
 Route::get('/article', 'ArticleController@getAll');
+
 //Route::get('/login', 'LoginController@login')->name('login');
 
 // Auth::routes();
