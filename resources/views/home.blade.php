@@ -80,7 +80,7 @@
     <div class="row" >
       @foreach($article as $a)
     <div class="card" style="width: 18rem; border-radius: 20px; box-shadow: 0 4px 20px 0 rgba(34, 68, 123, 0.2); margin: 2.5rem; ">
-  <img src="images/{{$a->featured_image1}}" class="card-img-top" alt="..." style=" border-radius: 20px 20px 0 0;">
+  <img src="{{$a->featured_image1}}" class="card-img-top" alt="..." style=" border-radius: 20px 20px 0 0;">
   <div class="card-body" style="cursor: pointer;">
     <h5 class="card-title">{{$a->title1}}</h5>
     <p class="card-text">{{$a -> content1}}</p>

@@ -50,7 +50,7 @@
         <hr>
 
         <!-- Preview Image -->
-        <img class="img-fluid rounded" src="{{asset('images/' . $article->featured_image1 )}}" alt="">
+        <img class="img-fluid rounded" src="{{$article->featured_image1}}" alt="">
 
         <hr>
 
