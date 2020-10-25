@@ -1,7 +1,7 @@
 Link Video Demo Kuis: https://youtu.be/KC6Ky9HB8q8
 
 Link Video Demo UTS : https://youtu.be/X0tUXMYk6h0
-Penjelasan modifikasi 
+<p>Penjelasan modifikasi </p>
 Pada modifikasi ini, saya menambahkan fitur pagination, komentar, dan CRUD.
 Fitur pagination saya terapkan untuk membatasi jumlah dari artikel yang ditampilkan dalam satu halaman. Pagination dilakukan pada file HomeController method getByAll dan menambhkan fungsi links() di view home.blade.php
 Fitur Komentar diterapkan pada setiap artikel dengan membuat tabel baru yaitu comments. Pengisian data pada tabel comments dilakukan dalam ArticleController method inserSata yang meminta parameter id. Id ini digunakan untuk mengambil id article yang ingin dikomentari, Ini dilakukan agar pada komentar lain tidak muncul seperti pada komentar artikel yang sudah di komen.
