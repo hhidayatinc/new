@@ -6,12 +6,12 @@ Pada modifikasi ini, saya menambahkan fitur pagination, komentar, dan CRUD.
 Fitur pagination saya terapkan untuk membatasi jumlah dari artikel yang ditampilkan dalam satu halaman. Pagination dilakukan pada file HomeController method getByAll dan menambhkan fungsi links() di view home.blade.php
 Fitur Komentar diterapkan pada setiap artikel dengan membuat tabel baru yaitu comments. Pengisian data pada tabel comments dilakukan dalam ArticleController method inserSata yang meminta parameter id. Id ini digunakan untuk mengambil id article yang ingin dikomentari, Ini dilakukan agar pada komentar lain tidak muncul seperti pada komentar artikel yang sudah di komen.
 Fitur create,update,delete dilakukan dengan menambahkan views manage, addarticle, dan editarticle. Sedangkan untuk method di ArticleController menambah:
-1. index() : untuk mengembalikan view manage yang berisi daftar artikel yang sudah ada dan ditampilkan pada halaman home
-2. add () : untuk mengembalikan view addarticle yang berisi form untuk insert data artikel baru
-3. create ($request) : untuk memasukkan inputan dari form yang ada di addarticle.blade.php ke dalam tabel.
-4. edit($id) : berparameter id untuk mengambil id di setiap artikel.
-5. update($id,$req) : untuk memasukkan inputan dari form yang ada di editarticle.blade.php ke dalam tabel. 
-6. delete($id) : sama seperti method edit, method delete juga mempunyai id article yang digunakan untuk mengambil id yang sudah dikeheendaki user untuk di delete.  
+<p>1. index() : untuk mengembalikan view manage yang berisi daftar artikel yang sudah ada dan ditampilkan pada halaman home</p>
+<p>2. add () : untuk mengembalikan view addarticle yang berisi form untuk insert data artikel baru</p>
+<p>3. create ($request) : untuk memasukkan inputan dari form yang ada di addarticle.blade.php ke dalam tabel.</p>
+<p>4. edit($id) : berparameter id untuk mengambil id di setiap artikel.</p>
+<p>5. update($id,$req) : untuk memasukkan inputan dari form yang ada di editarticle.blade.php ke dalam tabel. </p>
+<p>6. delete($id) : sama seperti method edit, method delete juga mempunyai id article yang digunakan untuk mengambil id yang sudah dikeheendaki user untuk di delete.</p>
 
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
