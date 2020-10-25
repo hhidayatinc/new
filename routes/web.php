@@ -23,9 +23,12 @@ Route::get('/article/{id}', 'ArticleController@getById');
 Route::post('/article/{id}', 'ArticleController@insertData');
 Route::get('/article', 'ArticleController@getAll');
 Route::get('/manage', 'ArticleController@index');
+
+Route::group(['middleware' =>['auth']], function(){
 Route::get('/add','ArticleController@add');
 Route::post('/create','ArticleController@create');
 Route::get('/editarticle/{id}','ArticleController@edit');
 Route::get('/delete/{id}','ArticleController@delete');
 Route::post('/update/{id}','ArticleController@update');
+});
 

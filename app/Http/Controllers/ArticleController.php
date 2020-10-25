@@ -11,10 +11,7 @@ use Faker\Factory as Faker;
 
 class ArticleController extends Controller
 {
-    // public function index($id){
-    //     //$article=Article::find($id);
-    //     return view ('article', compact('id'));
-    // }
+ 
     public function getAll(){
         $article=Cache::rememberForever('article', function(){
             return Article::all();
@@ -54,7 +51,8 @@ class ArticleController extends Controller
         $add->content1 = $request->content;
         $add->featured_image1 = $request->image;
         $add->save();
-        return redirect('/manage');
+        return redirect('/manage')
+        ;
     }
   
     public function edit($id)
@@ -70,13 +68,15 @@ class ArticleController extends Controller
         $article->content1 = $req->content;
         $article->featured_image1 = $req->image;
         $article->save();
- 
-        return redirect('/manage');
+        
+        return redirect('/manage')
+      ;
     }
     public function delete($id)
     {
         $article = Article::find($id);
         $article->delete();
-        return redirect('/manage');
+        return redirect('/manage')
+        ;
     }
 }

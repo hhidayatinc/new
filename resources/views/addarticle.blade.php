@@ -26,7 +26,8 @@
   <!-- Page Content -->
   <div class="container">
 
-    <div class="row">
+    <div class="jumbotron">
+    <p class="h1 text-center"> Form Tambah Artikel </p>
     <form action="/create" method="post">
  @csrf
  <div class="form-group">
@@ -35,9 +36,11 @@
 required="required" name="title"></br>
  </div>
  <div class="form-group">
- <label for="content">Content</label>
+ <label for="exampleFormControlTextarea1">Content</label>
+    <textarea class="form-control" required="required" name="content" rows="3"></textarea>
+ <!-- <label for="content">Content</label>
  <input type="text" class="form-control" 
-required="required" name="content"></br>
+required="required" name="content"></br> -->
  </div>
  <div class="form-group">
  <label for="image">Feature Image</label>

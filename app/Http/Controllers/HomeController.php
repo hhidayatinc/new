@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Article;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -24,7 +25,7 @@ class HomeController extends Controller
      */
     public function getByAll()
     {
-        $article=Article::all();
+        $article=DB::table('articles')->paginate(6);
         return view('home',['article'=>$article]);
     }
     public function getById($id){

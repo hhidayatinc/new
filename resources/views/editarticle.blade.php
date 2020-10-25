@@ -26,7 +26,8 @@
   <!-- Page Content -->
   <div class="container">
 
-    <div class="row">
+  <div class="jumbotron">
+    <p class="h1 text-center"> Form Edit Artikel </p>
     <form action="/update/{{$article->id}}" method="post">
  {{csrf_field()}}
  <input type="hidden" name="id" value="{{$article->id}}"></br>

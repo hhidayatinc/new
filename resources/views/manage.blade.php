@@ -27,10 +27,10 @@
   <div class="container">
 
     <div class="row">
-    <a href="/add" class="btn btn-dark float-right">Tambah Data</a>
-    <p> </p>
-<table class="table table-bordered table-striped">
-<thead class="thead-dark">
+
+    <p> <a href="/add" class="btn btn-outline-dark">Tambah Data</a> </p>
+<table class="table table-striped">
+<thead class="thead">
  <tr>
  <th>No</th> 
  <th>Judul</th>
@@ -44,12 +44,13 @@
  <td>{{$a->id}}</td>
  <td>{{$a->title1}}</td>
  <td>{{$a->created_at}}</td>
- <td> <a href="editarticle/{{$a->id}}" class="btn btn-dark ">Edit Data</a>
- <a href="delete/{{ $a->id }}" class="btn btn-dark">Hapus</a></td>
+ <td> <a href="editarticle/{{$a->id}}" class="btn btn-outline-success">Edit Data</a>
+ <a href="delete/{{ $a->id }}" class="btn btn-outline-danger">Hapus</a></td>
  </tr>
  @endforeach
  </tbody>
 </table>
 </div>
+
 </html>
 @endsection
