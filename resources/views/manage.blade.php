@@ -27,8 +27,15 @@
   <div class="container">
 
     <div class="row">
+    
+   <p><a href="/print" class="btn btn-primary" target="_blank" >Cetak Data </a></p>
 
-    <p> <a href="/add" class="btn btn-outline-dark">Tambah Data</a> </p>
+   <p><a href="/create" class="btn btn-primary">Tambah Data</a></p>
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
+    @endif
 <table class="table table-striped">
 <thead class="thead">
  <tr>
@@ -44,13 +51,28 @@
  <td>{{$a->id}}</td>
  <td>{{$a->title1}}</td>
  <td>{{$a->created_at}}</td>
- <td> <a href="editarticle/{{$a->id}}" class="btn btn-outline-success">Edit Data</a>
+ <td>
+                <form action="{{ route('articles.destroy',$a->id) }}" method="POST">
+   
+                    <a class="btn btn-info" href="article/{{$a->id}}">Show</a>
+    
+                    <a class="btn btn-primary" href="editarticle/{{$a->id}}">Edit</a>
+   
+                    @csrf
+                    @method('DELETE')
+      
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </td>
+ <!-- <td>
+ <a href="article/{{$a->id}}" class="btn btn-outline-success">Show</a>
+ <a href="editarticle/{{$a->id}}" class="btn btn-outline-success">Edit Data</a>
  <a href="delete/{{ $a->id }}" class="btn btn-outline-danger">Hapus</a></td>
- </tr>
+ </tr> -->
  @endforeach
  </tbody>
 </table>
-</div>
 
+</div>
 </html>
 @endsection

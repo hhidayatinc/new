@@ -28,24 +28,31 @@
 
     <div class="jumbotron">
     <p class="h1 text-center"> Form Tambah Artikel </p>
-    <form action="/create" method="post">
- @csrf
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+    <form action="/store" method="post" enctype="multipart/form-data">
+ @csrf 
  <div class="form-group">
  <label for="title">Judul</label>
  <input type="text" class="form-control" 
-required="required" name="title"></br>
+required="required" name="title1"></br>
  </div>
  <div class="form-group">
  <label for="exampleFormControlTextarea1">Content</label>
-    <textarea class="form-control" required="required" name="content" rows="3"></textarea>
- <!-- <label for="content">Content</label>
- <input type="text" class="form-control" 
-required="required" name="content"></br> -->
+    <textarea class="form-control" required="required" name="content1" rows="3"></textarea>
+
  </div>
  <div class="form-group">
  <label for="image">Feature Image</label>
- <input type="text" class="form-control" 
-required="required" name="image"></br>
+ <br><input type="file" required="required" name="featured_image1"></br>
  </div>
  <button type="submit" name="add" class="btn btn-primary float-right">Tambah Data</button>
 

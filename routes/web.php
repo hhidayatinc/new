@@ -19,16 +19,15 @@ Auth::routes();
 Route::get('/home', 'HomeController@getByAll');
 Route::get('/home/{article}', 'HomeController@getById');
 Route::get('/about', 'AboutController@index');
-Route::get('/article/{id}', 'ArticleController@getById');
-Route::post('/article/{id}', 'ArticleController@insertData');
-Route::get('/article', 'ArticleController@getAll');
-Route::get('/manage', 'ArticleController@index');
 
-Route::group(['middleware' =>['auth']], function(){
-Route::get('/add','ArticleController@add');
-Route::post('/create','ArticleController@create');
-Route::get('/editarticle/{id}','ArticleController@edit');
-Route::get('/delete/{id}','ArticleController@delete');
-Route::post('/update/{id}','ArticleController@update');
-});
+Route::resource('articles','UploadController')->middleware('auth');
+Route::get('/create','UploadController@create');
+Route::post('/store','UploadController@store');
+Route::get('/destroy/{id}','UploadController@destroy');
+Route::get('/editarticle/{id}','UploadController@edit');
+Route::post('/update/{id}','UploadController@update');
+Route::get('/article/{id}', 'UploadController@show');
+Route::post('/article/{id}', 'UploadController@komen');
+Route::get('/manage', 'UploadController@index')->name('manage');
+Route::get('/print','UploadController@print');
 
