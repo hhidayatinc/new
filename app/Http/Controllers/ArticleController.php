@@ -64,12 +64,13 @@ class ArticleController extends Controller
     public function update($id, Request $req)
     {
         $article = Article::find($id);
-        $article->title1 = $req->title;
-        $article->content1 = $req->content;
-        $article->featured_image1 = $req->image;
+        $article->title1 = $req->title1;
+        $article->content1 = $req->content1;
+        $article->featured_image1 = $req->featured_image1;
         $article->save();
         
-        return redirect('/manage')
+        return redirect()->route('manage')
+                         ->with('success','Product updated successfully');
       ;
     }
     public function delete($id)

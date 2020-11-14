@@ -66,37 +66,7 @@ class UploadController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        $article=Article::find($id);
-        $komen=Comment::all();
-        return view('article',['article'=>$article, 'komen'=>$komen, 'id'=>$id]);
-    }
-
-    public function komen(Request $req, $id){
-        $faker = Faker::create();
-        $hasil = Article::find($id);
-        $user = new Comment();
-        $user->name=$req->nama;
-        $user->comment=$req->komentar;
-        $user->id_article = $req->id;
-        $user->profile=$faker->imageUrl($width=50, $height=50);
-        $user->save();
-        return redirect()->action('UploadController@show',['id'=>$id]);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Article  $article
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Article $article)
-    {
-        
-        return view('editarticle',compact('article'));
-    }
-
+    
     /**
      * Update the specified resource in storage.
      *
@@ -104,32 +74,7 @@ class UploadController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function update(Article $article,Request $request)
-    {
-        $this->validate($request, [
-            'title1' => 'required',
-            'content1' => 'required',
-            'featured_image1' => 'required|max:7000'
-        ]);
-  
     
-        $article->update([
-            'title1'=>$request->title1,
-            'content1'=>$request->content1,
-            'featured_image1'=>$request->featured_image1,
-        ]);
-        // $filename = time().'.'.$request->file('featured_image1')->getClientOriginalExtension();
-        // $destinationPath = 'storage/uploads/';
-        // $upload_success = $request->file('featured_image1')->move($destinationPath, $filename);
-        // $article = Article::find($article);
-        // $article->title1 = $request->title1;
-        // $article->content1 = $request->content1;
-        // $article->featured_image1 = $request->featured_image1;
-        // $article->featured_image1 = $destinationPath.$filename;
-        // $article->save();
-        return redirect()->route('manage')
-                        ->with('success','Product updated successfully');
-    }
 
     /**
      * Remove the specified resource from storage.

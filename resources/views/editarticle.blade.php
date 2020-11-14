@@ -38,7 +38,7 @@
             </ul>
         </div>
     @endif
-    <form action="/update/{id}" method="post" enctype="multipart/form-data">
+    <form action="/update/{{$article->id}}" method="post" >
 @csrf
 <!-- @method('PUT')  -->
  <input type="hidden" name="id" value="{{$article->id}}"></br>
@@ -54,7 +54,8 @@ required="required" name="content1" value="{{$article->content1}}"></br>
  </div>
  <div class="form-group">
  <label for="image">Feature Image</label>
- <br><input type="file" required="required" name="featured_image1"></br>
+ <input type="text" class="form-control" 
+required="required" name="featured_image1" value="{{$article->featured_image1}}"></br>
  </div>
  <button type="submit" name="edit" class="btn btn-primary float-right">Ubah Data</button>
  </form>
