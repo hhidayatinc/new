@@ -44,16 +44,16 @@ class ArticleController extends Controller
     {
         return view('addarticle');
     }
-    public function create(Request $request)
-    {
-        $add = new Article();
-        $add->title1 = $request->title;
-        $add->content1 = $request->content;
-        $add->featured_image1 = $request->image;
-        $add->save();
-        return redirect('/manage')
-        ;
-    }
+    // public function create(Request $request)
+    // {
+    //     $add = new Article();
+    //     $add->title1 = $request->title;
+    //     $add->content1 = $request->content;
+    //     $add->featured_image1 = $request->image;
+    //     $add->save();
+    //     return redirect('/manage')
+    //     ;
+    // }
   
     public function edit($id)
     {
@@ -80,4 +80,33 @@ class ArticleController extends Controller
         return redirect('/manage')
         ;
     }
+
+    public function search1(Request $request)
+	{
+		// menangkap data pencarian
+		$search = $request->search;
+ 
+    		// mengambil data dari table pegawai sesuai pencarian data
+		$article = DB::table('articles')
+		->where('title1','like',"%".$search."%")
+		->paginate();
+ 
+    		// mengirim data pegawai ke view index
+		return view('home',['article' => $article]);
+ 
+    }
+    public function search2(Request $request)
+	{
+		// menangkap data pencarian
+		$search = $request->search;
+ 
+    		// mengambil data dari table pegawai sesuai pencarian data
+		$article = DB::table('articles')
+		->where('title1','like',"%".$search."%")
+		->paginate();
+ 
+    		// mengirim data pegawai ke view index
+		return view('manage',['article' => $article]);
+ 
+	}
 }

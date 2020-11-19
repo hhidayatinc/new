@@ -57,7 +57,7 @@ class UploadController extends Controller
         $add->featured_image1 = $destinationPath.$filename;
         $add->save();
         return redirect()->route('manage')
-                        ->with('success','Product created successfully.');
+                        ->with('success','Article created successfully.');
     }
 
     /**
@@ -87,7 +87,7 @@ class UploadController extends Controller
         $article->delete();
   
         return redirect()->route('manage')
-                        ->with('success','Product deleted successfully');
+                        ->with('success','Article deleted successfully');
     }
 
     public function print()

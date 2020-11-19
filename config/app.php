@@ -54,7 +54,13 @@ return [
 
     'url' => env('APP_URL', 'http://localhost'),
 
+
     'asset_url' => env('ASSET_URL', null),
+    'news_api_url' => env('NEWS_API_URL', null),
+    'news_api_key' => env('NEWS_API_KEY', null),
+    'default_news_source' => env('DEFAULT_NEWS_SOURCE', 'CNN'),
+    'default_news_source_id' => env('DEFAULT_NEWS_SOURCE_ID', 'cnn'),
+    
 
     /*
     |--------------------------------------------------------------------------
@@ -162,6 +168,8 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
+        App\Providers\RouteServiceProvider::class,
+        App\Providers\HelperServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -175,6 +183,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+       
 
     ],
 
@@ -227,7 +236,9 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
-
+        'View' => Illuminate\Support\Facades\View::class,
+        'Helper' => App\Helpers\Helper::class,
+       
     ],
 
 ];

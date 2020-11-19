@@ -29,13 +29,17 @@
     <div class="row">
     
    <p><a href="/print" class="btn btn-primary" target="_blank" >Cetak Data </a></p>
-
+ 
    <p><a href="/create" class="btn btn-primary">Tambah Data</a></p>
     @if ($message = Session::get('success'))
         <div class="alert alert-success">
             <p>{{ $message }}</p>
         </div>
     @endif
+    <form action="/manage/search2" method="GET" class="form-inline">
+		<input type="search" class="form-control mr-sm-2"name="search" placeholder="Cari Artikel .." value="{{ old('search') }}">
+		<input type="submit" value="Search" class="btn btn-outline-success my-2 my-sm-0">
+	</form>
 <table class="table table-striped">
 <thead class="thead">
  <tr>
