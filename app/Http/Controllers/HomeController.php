@@ -32,4 +32,8 @@ class HomeController extends Controller
         $article=Article::find($id);
         return view('article',['article'=>$article]);
     }
+    public function about(){
+       
+        return view('about');
+    }
 }

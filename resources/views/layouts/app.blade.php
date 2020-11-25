@@ -39,20 +39,36 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
-                        <li class="nav-item active">
+                        <!-- <li class="nav-item active">
                         <a class="nav-link" href="/home">Home
                         <span class="sr-only">(current)</span>
                          </a>
-                         </li>
-                         <li class="nav-item">
+                         </li> -->
+                         <!-- <li class="nav-item">
                          <a class="nav-link" href="/about">About</a>
                         </li>
-                        </li>
-                         <li class="nav-item">
+                        </li> -->
+                         <!-- <li class="nav-item">
                          <a class="nav-link" href="/manage">Manage</a>
                         </li>
+                        </li> -->
+                        <li class="nav-item {{ Route::is('home') ? 'active' : '' }}">
+                        @can('user-display')
+                            <a class="nav-link" href="{{ route('home') }}">Home</a>
+                        @endcan
                         </li>
-                         
+                        <li class="nav-item {{ Route::is('about') ? 'active' : '' }}">
+                        @can('user-display')
+                        <a class="nav-link" href="/about">About</a>
+                        @endcan
+                        </li>
+
+                        <li class="nav-item {{ Route::is('manage') ? 'active' : '' }}">
+                            @can('manage-articles')
+                            <a class="nav-link" href="{{ route('manage') }}">Kelola</a>
+                            @endcan
+                            </li>
+
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>

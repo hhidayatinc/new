@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@getByAll');
 Route::get('/home/{article}', 'HomeController@getById');
-Route::get('/about', 'AboutController@index');
+Route::get('/about', 'HomeController@about');
 Route::get('/article/{id}', 'ArticleController@getById');
 Route::get('manage/article/{id}', 'ArticleController@getById');
 Route::post('/article/{id}', 'ArticleController@insertData');
@@ -32,12 +32,12 @@ Route::group(['middleware' =>['auth']], function(){
    Route::post('/update/{id}','ArticleController@update');
    });
    
-Route::resource('articles','UploadController')->middleware('auth');
-Route::get('/manage', 'UploadController@index')->name('manage');
-Route::get('/create','UploadController@create');
-Route::post('/store','UploadController@store');
-Route::get('/destroy/{id}','UploadController@destroy');
-Route::get('/print','UploadController@print');
+Route::resource('articles','ArticleController')->middleware('auth');
+Route::get('/manage', 'ArticleController@index')->name('manage');
+Route::get('/create','ArticleController@create');
+Route::post('/store','ArticleController@store');
+Route::get('/destroy/{id}','ArticleController@destroy');
+Route::get('/print','ArticleController@print');
 
 
 

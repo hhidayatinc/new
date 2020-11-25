@@ -1,9 +1,5 @@
 @extends('layouts.app')
 @section('title', 'About')
-@section('sidebar')
-@parent
-<p>Sidebar halaman Profil.</p>
-@endsection
 @section('content')
 
 <!doctype html>
