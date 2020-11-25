@@ -54,7 +54,7 @@
                         </li> -->
                         <li class="nav-item {{ Route::is('home') ? 'active' : '' }}">
                         @can('user-display')
-                            <a class="nav-link" href="{{ route('home') }}">Home</a>
+                            <a class="nav-link" href="/home">Home</a>
                         @endcan
                         </li>
                         <li class="nav-item {{ Route::is('about') ? 'active' : '' }}">
