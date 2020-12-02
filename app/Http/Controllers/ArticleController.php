@@ -61,7 +61,7 @@ class ArticleController extends Controller
         $article->save();
         
         return redirect()->route('manage')
-                         ->with('success','Product updated successfully');
+                         ->with('success','Article updated successfully');
       ;
     }
 //     public function update($id, Request $request)
