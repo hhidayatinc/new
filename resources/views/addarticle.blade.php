@@ -52,7 +52,7 @@ required="required" name="title1"></br>
  </div>
  <div class="form-group">
  <label for="image">Feature Image</label>
- <br><input type="file" required="required" name="featured_image1"></br>
+ <br><input type="file"  class="form-control" required="required" name="featured_image1"></br>
  </div>
  <button type="submit" name="add" class="btn btn-primary float-right">Tambah Data</button>
 

@@ -13,19 +13,20 @@
 Route::get('/', function(){
    return view('welcome');
 });
-Route::get('/newsApi', 'ApiController@displayNews');
-Route::post('/sourceId', 'ApiController@displayNews');
+
+Route::get('/news', 'NewsController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@getByAll');
 Route::get('/home/{article}', 'HomeController@getById');
 Route::get('/about', 'HomeController@about');
-Route::get('/article/{id}', 'ArticleController@getById');
-Route::get('manage/article/{id}', 'ArticleController@getById');
-Route::post('/article/{id}', 'ArticleController@insertData');
-Route::get('/manage/search1', 'ArticleController@search1');
+Route::get('/article/{id}', 'HomeController@getById');
+Route::get('manage/article/{id}', 'HomeController@getById');
+Route::get('manage/article/{id}', 'HomeController@insertData');
+Route::post('/article/{id}', 'HomeController@insertData');
+Route::get('/manage/search1', 'HomeController@search1');
 Route::get('/manage/search2', 'ArticleController@search2');
-// Route::get('/manage', 'ArticleController@index');
+
 
 Route::group(['middleware' =>['auth']], function(){
    Route::get('/editarticle/{id}','ArticleController@edit');

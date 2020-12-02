@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Gate; //this use for authentication not article
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Article;
@@ -13,6 +13,7 @@ use Faker\Factory as Faker;
 class ArticleController extends Controller
 {
     public function __construct()
+    //this method for authentication, not article
 {
     //$this->middleware('auth');
     $this->middleware(function($request, $next){
@@ -21,51 +22,28 @@ class ArticleController extends Controller
         });
        
 }
-
- 
     public function getAll(){
         $article=Cache::rememberForever('article', function(){
             return Article::all();
         });
         return view('article', compact('article'));
     }
-    public function getById($id){
-        $article=Article::find($id);
-        $komen=Comment::all();
-        return view('article',['article'=>$article, 'komen'=>$komen, 'id'=>$id]);
-    }
-    public function insertData(Request $req, $id){
-        $faker = Faker::create();
-        $hasil = Article::find($id);
-        $user = new Comment();
-        $user->name=$req->nama;
-        $user->comment=$req->komentar;
-        $user->id_article = $req->id;
-        $user->profile=$faker->imageUrl($width=50, $height=50);
-        $user->save();
-        return redirect()->action('ArticleController@getById',['id'=>$id]);
-    }
-    
-    // public function index()
-    // {
-    //     $article = Article::all();
-    //     return view('manage',['article' => $article]);
+ 
+    // public function insertData(Request $req, $id){
+    //     $faker = Faker::create();
+    //     $hasil = Article::find($id);
+    //     $user = new Comment();
+    //     $user->name=$req->nama;
+    //     $user->comment=$req->komentar;
+    //     $user->id_article = $req->id;
+    //     $user->profile=$faker->imageUrl($width=50, $height=50);
+    //     $user->save();
+    //     return redirect()->action('ArticleController@getById',['id'=>$id]);
     // }
     public function add()
     {
         return view('addarticle');
     }
-
-    // public function create(Request $request)
-    // {
-    //     $add = new Article();
-    //     $add->title1 = $request->title;
-    //     $add->content1 = $request->content;
-    //     $add->featured_image1 = $request->image;
-    //     $add->save();
-    //     return redirect('/manage')
-    //     ;
-    // }
   
     public function edit($id)
     {
@@ -75,6 +53,7 @@ class ArticleController extends Controller
 
     public function update($id, Request $req)
     {
+        
         $article = Article::find($id);
         $article->title1 = $req->title1;
         $article->content1 = $req->content1;
@@ -85,46 +64,43 @@ class ArticleController extends Controller
                          ->with('success','Product updated successfully');
       ;
     }
-    // public function delete($id)
-    // {
-    //     $article = Article::find($id);
-    //     $article->delete();
-    //     return redirect('/manage')
-    //     ;
-    // }
+//     public function update($id, Request $request)
+// {
+//  $article = Article::find($id);
+//  $article->title = $request->title1;
+//  $article->content = $request->content1;
+//  $filename = time().'.'.$request->file('featured_image1')->getClientOriginalExtension();
+//      $destinationPath = 'storage/uploads/';
+//     $upload_success = $request->file('featured_image1')->move($destinationPath, $filename);
+ 
+//  $article->featured_image1 = $$destinationPath.$filename;
+//  $article->save();
+//     return redirect()->route('manage')
+//                           ->with('success','Product updated successfully');
+//       ;
+// }
+  
 
-    public function search1(Request $request)
-	{
-		// menangkap data pencarian
-		$search = $request->search;
- 
-    		// mengambil data dari table pegawai sesuai pencarian data
-		$article = DB::table('articles')
-		->where('title1','like',"%".$search."%")
-		->paginate();
- 
-    		// mengirim data pegawai ke view index
-		return view('home',['article' => $article]);
- 
-    }
     public function search2(Request $request)
 	{
 		// menangkap data pencarian
 		$search = $request->search;
  
-    		// mengambil data dari table pegawai sesuai pencarian data
+    		// mengambil data dari table article sesuai pencarian data
 		$article = DB::table('articles')
 		->where('title1','like',"%".$search."%")
 		->paginate();
  
-    		// mengirim data pegawai ke view index
+    		// mengirim data article ke view manage
 		return view('manage',['article' => $article]);
- 
     }
+
     public function index()
     {
-        $article = Article::all();
-        return view('manage',['article' => $article]);
+        $article=DB::table('articles')->paginate(6);
+        return view('manage',['article'=>$article]);
+        // $article = Article::all();
+        // return view('manage',['article' => $article]);
         
     }
     public function create()
@@ -150,9 +126,23 @@ class ArticleController extends Controller
         $add->featured_image1 = $request->featured_image1;
         $add->featured_image1 = $destinationPath.$filename;
         $add->save();
-        return redirect()->route('manage')
+       return redirect()->route('manage') 
                         ->with('success','Article created successfully.');
     }
+//     public function store2(Request $request)
+//     {
+//      if($request->file('image')){
+//      $image_name = $request->file('image')->store('uploads','storage');
+//     }
+//     Article::create([
+//     'title1' => $request->title1,
+//     'content1' => $request->content1,
+//     'featured_image1' => $request->featured_image1,
+//  ]);
+//  return redirect()->route('manage') 
+//  ->with('success','Article created successfully.');
+// }
+
     public function destroy(Article $article)
     {
         $article->delete();
@@ -163,6 +153,7 @@ class ArticleController extends Controller
 
     public function print()
     {
+        //this method for make a report
         $article = Article::all();
     	$pdf = PDF::loadview('article_pdf',['article'=>$article]);
     	return $pdf->stream();

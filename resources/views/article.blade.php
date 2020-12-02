@@ -51,27 +51,14 @@
 
         <!-- Preview Image -->
         <!-- <img class="img-fluid rounded" src="{{$article->featured_image1}}" alt=""> -->
-        <img class="img-fluid rounded" src="{{ $article->featured_image1}}" alt="">
+        <img class="img-fluid rounded" src="{{$article->featured_image1}}" alt="">
 
         <hr>
 
         <!-- Post Content -->
         <p class="lead">{{$article->content1}}</p>
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.</p>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis. Enim, iure!</p>
-
-        <blockquote class="blockquote">
-          <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-          <footer class="blockquote-footer">Someone famous in
-            <cite title="Source Title">Source Title</cite>
-          </footer>
-        </blockquote>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat totam sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?</p>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui, necessitatibus, est!</p>
+        
 
         <hr>
 
@@ -100,7 +87,7 @@
         @foreach($komen as $c)
         @if($c->id_article==$id)
         <div class="media mb-4">
-          <img class="d-flex mr-3 rounded-circle" width="50" height="50" src="https://cdn.pixabay.com/photo/2017/02/23/13/05/profile-2092113_960_720.png" alt="">
+          
           <div class="media-body">
             <h2 class="mt-0">{{$c->name}}</h2>
             <h5 >{{$c->comment}}</h5>
